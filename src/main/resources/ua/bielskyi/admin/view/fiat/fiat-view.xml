@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:charts="http://jmix.io/schema/charts/ui"
+      title="msg://fiatView.title">
+    <data readOnly="true">
+        <collection id="fiatGrowthDc"
+                    class="ua.bielskyi.admin.model.FiatGrowth">
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
+    <layout>
+        <select id="currency" itemsEnum="ua.bielskyi.admin.model.Currency"/>
+        <datePicker id="from" name="From"/>
+        <datePicker id="to" name="To"/>
+        <button id="apply" text="Apply"/>
+        <charts:chart id="chart" width="100%" height="100%" minHeight="30em">
+            <charts:tooltip trigger="AXIS">
+                <charts:axisPointer type="SHADOW"/>
+            </charts:tooltip>
+            <charts:legend/>
+
+            <charts:xAxes>
+                <charts:xAxis/>
+            </charts:xAxes>
+            <charts:yAxes>
+                <charts:yAxis/>
+            </charts:yAxes>
+
+            <charts:dataSet>
+                <charts:source dataContainer="fiatGrowthDc"
+                               categoryField="date" valueFields="monoValue privatValue openDataValue"/>
+            </charts:dataSet>
+
+            <charts:series>
+                <charts:bar name="Monobank rate"/>
+                <charts:bar name="PrivatBank rate"/>
+                <charts:bar name="OpenData rate"/>
+            </charts:series>
+        </charts:chart>
+    </layout>
+</view>

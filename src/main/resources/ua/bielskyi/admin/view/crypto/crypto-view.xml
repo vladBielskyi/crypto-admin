@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<view xmlns="http://jmix.io/schema/flowui/view"
+      xmlns:charts="http://jmix.io/schema/charts/ui"
+      title="msg://cryptoView.title">
+    <layout>
+        <select id="base" itemsEnum="ua.bielskyi.admin.model.Crypto" label="Crypto Base"/>
+        <select id="quote" itemsEnum="ua.bielskyi.admin.model.Crypto" label="Crypto Quote"/>
+        <select id="period" itemsEnum="ua.bielskyi.admin.model.TimeSeriesPeriod" label="Period"/>
+        <button id="apply" text="Apply"/>
+        <charts:chart id="chart" width="100%" height="100%" minHeight="30em">
+            <charts:xAxes>
+                <charts:xAxis/>
+            </charts:xAxes>
+
+            <charts:yAxes>
+                <charts:yAxis/>
+            </charts:yAxes>
+
+            <charts:series>
+                <charts:candlestick/>
+            </charts:series>
+        </charts:chart>
+    </layout>
+</view>
